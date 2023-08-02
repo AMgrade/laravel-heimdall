@@ -37,6 +37,6 @@ If you want to use the validation rule, just add `heimdall` validation rule to t
 
 Available options in a `heimdall` validation rule: `full`, `domain` and `regexp`, `all` - combination of these three rules.
 
-Validation rule usage: `hellmdail:domain`, `hellmdail:domain,regexp`.
+Validation rule usage: `heimdall:domain`, `heimdall:domain,regexp`.
 
-If no rule type is added, will be applied `all` rule type. For example: `hellmdail`, `hellmdail:`.
+If no rule type is added, will be applied `all` rule type. For example: `heimdall`, `heimdall:`.
