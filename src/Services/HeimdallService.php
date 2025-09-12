@@ -13,7 +13,7 @@ use function str_ends_with;
 use const false;
 use const true;
 
-class HeimdallService
+class HeimdallService implements HeimdallServiceInterface
 {
     protected array $config = [];
 

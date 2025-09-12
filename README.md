@@ -11,7 +11,7 @@ composer require amgrade/laravel-heimdall
 ```
 
 ## Configuration
-This packages supports discovery configuration of the service provider. If you prefer manual installation, then add to `config/app.php` into `providers` section next line:
+This package supports the discovery configuration of the service provider. If you prefer manual installation, then add to `config/app.php` in the `providers` section the next line:
 
 ```php
 'providers' => [
@@ -25,17 +25,17 @@ You can optionally publish the config file with:
 php artisan vendor:publish --provider="\AMgrade\Heimdall\ServiceProvider"
 ```
 
-Then open the `config/heimdall.php` and configure a list of emails, regular expressions or domains against which will be checked the email.
+Then open the `config/heimdall.php` and configure a list of emails, regular expressions, or domains against which the email will be checked.
 
 ## Usage
 
-You have two options to use this package: observer or/and validation rule.
+You have two options to use this package: observer or/and a validation rule.
 
 Observer prevents the creating/updating of enumerated models in `heimdall.php` config file.
 
 If you want to use the validation rule, just add `heimdall` validation rule to the field which should be validated, for example `'email' => ['heimdall']`.
 
-Available options in a `heimdall` validation rule: `full`, `domain` and `regexp`, `all` - combination of these three rules.
+Available options in a `heimdall` validation rule: `full`, `domain`, `regexp`, and `all` - a combination of these three rules.
 
 Validation rule usage: `heimdall:domain`, `heimdall:domain,regexp`.
 

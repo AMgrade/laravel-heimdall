@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AMgrade\Heimdall\Validation\Rules;
 
-use AMgrade\Heimdall\Services\HeimdallService;
+use AMgrade\Heimdall\Services\HeimdallServiceInterface;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Config;
@@ -25,12 +25,12 @@ class HeimdallRule implements Rule
 
     protected array $ruleTypes = [];
 
-    protected HeimdallService $service;
+    protected HeimdallServiceInterface $service;
 
     public function __construct(array $ruleTypes = ['all'])
     {
         $this->ruleTypes = $ruleTypes;
-        $this->service = Container::getInstance()->make(HeimdallService::class);
+        $this->service = Container::getInstance()->make(HeimdallServiceInterface::class);
     }
 
     /**
