@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AMgrade\Heimdall\Observers;
 
-use AMgrade\Heimdall\Services\HeimdallService;
+use AMgrade\Heimdall\Services\HeimdallServiceInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 
@@ -17,9 +17,9 @@ class HeimdallObserver
 {
     protected array $config;
 
-    protected HeimdallService $service;
+    protected HeimdallServiceInterface $service;
 
-    public function __construct(HeimdallService $service)
+    public function __construct(HeimdallServiceInterface $service)
     {
         $this->config = Config::get('heimdall');
         $this->service = $service;

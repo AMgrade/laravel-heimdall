@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace AMgrade\Heimdall;
 
-use AMgrade\Heimdall\Observers\HeimdallObserver;
+use AMgrade\Heimdall\Services\HeimdallService;
+use AMgrade\Heimdall\Services\HeimdallServiceInterface;
 use AMgrade\Heimdall\Validation\Rules\HeimdallRule;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
@@ -24,6 +25,8 @@ class ServiceProvider extends BaseServiceProvider
         }
 
         $this->registerObservers();
+
+        $this->registerService();
 
         $this->registerValidationRule();
     }
@@ -45,9 +48,14 @@ class ServiceProvider extends BaseServiceProvider
             }
 
             foreach ($config['events'] ?? [] as $event) {
-                $class::registerModelEvent($event, HeimdallObserver::class.'@handle');
+                $class::registerModelEvent($event, "{$config['class']}@handle");
             }
         }
+    }
+
+    protected function registerService(): void
+    {
+        $this->app->singleton(HeimdallServiceInterface::class, HeimdallService::class);
     }
 
     protected function registerValidationRule(): void

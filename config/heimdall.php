@@ -22,7 +22,7 @@ return [
     ],
 
     'observer' => [
-        // The HeimdallObserver passes through the below events for the specified models for
+        // The HeimdallObserver passes through the events below for the specified models for
         // emails that match the conditions in the "matches" section above.
         'class' => \AMgrade\Heimdall\Observers\HeimdallObserver::class,
 
